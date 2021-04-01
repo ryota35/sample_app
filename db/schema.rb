@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_151611) do
+ActiveRecord::Schema.define(version: 2021_03_31_163443) do
+
+  create_table "choices", force: :cascade do |t|
+    t.text "content", null: false
+    t.boolean "is_answer"
+    t.integer "test_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_choices_on_test_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
@@ -42,6 +57,13 @@ ActiveRecord::Schema.define(version: 2021_03_30_151611) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "level", default: 0, null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

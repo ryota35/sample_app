@@ -1,12 +1,29 @@
 
 <%= render 'layouts/form', task: @task %>
 
-<% @tasks.each do |task| %>
-<p><%= task.id %></p>
+<% @tasks_low.shuffle.first(10).each do |task| %>
+<p>id:<%= task.id %></p>
 <p><%= task.name %></p>
 <p><%= task.description %></p>
-<p><%= task.created_at %></p>
-<% task.tag_list.each do |tag| %>
-    <%= tag %>
+<p><%= task.level %></p>
 <% end %>
+
+<h1 class="confirm">ここまで初級者</h1>
+
+<% @tasks_middle.shuffle.first(10).each do |task| %>
+<p>id:<%= task.id %></p>
+<p><%= task.name %></p>
+<p><%= task.description %></p>
+<p><%= task.level %></p>
 <% end %>
+
+<h1 class="confirm">ここまで中級</h1>
+
+<% @tasks_high.shuffle.first(10).each do |task| %>
+<p>id:<%= task.id %></p>
+<p><%= task.name %></p>
+<p><%= task.description %></p>
+<p><%= task.level %></p>
+<% end %>
+
+<h1 class="confirm">ここまで上級</h1>

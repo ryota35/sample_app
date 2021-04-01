@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+
+.confirm {
+  color: red;
+  font-size: 40px;
+}
+
+.test {
+  border: solid 1px black;
+}

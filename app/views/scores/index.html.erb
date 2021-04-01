@@ -1,0 +1,9 @@
+<%= form_with model: @score, local: true do |f| %>
+  <% @tests.each do |test| %>
+    <p><%= test.content %></p>
+          <% test.choices.each do |choice| %>
+          <%= f.radio_button :is_answer, true %><%= choice.content %>
+          <% end %>
+  <% end %>
+<p><%= f.submit "回答する" %></p>
+<% end %>

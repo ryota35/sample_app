@@ -2,7 +2,9 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = Task.all
+    @tasks_low = Task.where(level: "初級")
+    @tasks_middle = Task.where(level: "中級")
+    @tasks_high = Task.where(level: "上級")
   end
 
   def create
